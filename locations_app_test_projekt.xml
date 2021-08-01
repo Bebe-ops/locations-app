@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="38d2a4f8-0487-4d2a-8952-3534349ad361" activeEnvironment="Default" name="Locations App test projekt" resourceRoot="" soapui-version="5.6.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="33a6a0bc-ab18-46ee-b5e6-a9221a59ad89" wsaVersion="NONE" name="AuthEndpointServiceSoapBinding" type="wsdl" bindingName="{http://locations.com/services/locations}AuthEndpointServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/services/auth?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/services/auth?wsdl"><con:part><con:url>http://localhost:8080/services/auth?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="AuthEndpointService" targetNamespace="http://locations.com/services/locations" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://locations.com/services/locations" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://locations.com/services/locations" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="sayHello" type="tns:sayHello"/>
+      <xs:element name="sayHelloResponse" type="tns:sayHelloResponse"/>
+      <xs:complexType name="sayHello">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sayHelloResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="sayHello">
+    <wsdl:part element="tns:sayHello" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sayHelloResponse">
+    <wsdl:part element="tns:sayHelloResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AuthEndpoint">
+    <wsdl:operation name="sayHello">
+      <wsdl:input message="tns:sayHello" name="sayHello"></wsdl:input>
+      <wsdl:output message="tns:sayHelloResponse" name="sayHelloResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuthEndpointServiceSoapBinding" type="tns:AuthEndpoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sayHello">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sayHello">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sayHelloResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthEndpointService">
+    <wsdl:port binding="tns:AuthEndpointServiceSoapBinding" name="AuthEndpointPort">
+      <soap:address location="http://localhost:8080/services/auth"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/services/auth</con:endpoint></con:endpoints><con:operation id="865c8e95-30b0-4efb-96bc-9c1061e8cca8" isOneWay="false" action="" name="sayHello" bindingOperationName="sayHello" type="Request-Response" outputName="sayHelloResponse" inputName="sayHello" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3ed5a593-086b-43de-bdb1-5c625e1facb8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="username" value="admin" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/auth</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loc="http://locations.com/services/locations">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <loc:sayHello>\r
+         <loc:name>Bebe</loc:name>\r
+      </loc:sayHello>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://locations.com/services/locations/AuthEndpoint/sayHello"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="04176fae-d6b5-4a7b-94e0-75b518f22bd6" name="AuthEndpointServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="690e6dc5-54c9-4d7d-885b-184815cfc39e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="sayHello TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="8ae2f995-1b07-40a4-a197-b777047e475e" name="sayHello"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AuthEndpointServiceSoapBinding</con:interface><con:operation>sayHello</con:operation><con:request name="sayHello" id="22b1e2d0-1838-400a-a2a4-ecb25104519d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="username" value="admin" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/auth</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loc="http://locations.com/services/locations">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <loc:sayHello>\r
+         <loc:name>Bebe</loc:name>\r
+      </loc:sayHello>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Invalid HTTP Status Codes" id="f60451e6-e107-436c-990c-0914bef80b59" name="Invalid HTTP Status Codes"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:assertion type="SOAP Response" id="6d9332e5-d805-4f35-9edf-f9457ca7666d" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="d3b57790-bf77-465e-8cbf-5ceb6ce4ac0a" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="0619eb84-3cca-4c50-9273-04bbb07bc52d" name="XPath Match1"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://locations.com/services/locations';
+//ns1:sayHelloResponse/ns1:message</path><content>Hello Bebe!</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0221437d-3640-419b-8476-30665c009a23" name="XPath Match2"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://locations.com/services/locations';
+//ns1:sayHelloResponse</path><content>&lt;sayHelloResponse xmlns="http://locations.com/services/locations" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">&#13;
+  &lt;message>Hello Bebe!&lt;/message>&#13;
+&lt;/sayHelloResponse></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="335d8a5a-2b94-40f9-87dc-6861b01449e1" name="XQuery Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://locations.com/services/locations';
+//ns1:sayHelloResponse/ns1:message</path><content>&lt;loc:message xmlns:loc="http://locations.com/services/locations">Hello Bebe!&lt;/loc:message></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="b8e89978-0778-4e21-8c0d-b501baf334de" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Schema Compliance" id="30f0e95a-2ce3-46ad-b67e-5f53c3f75681" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://locations.com/services/locations/AuthEndpoint/sayHello" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Neg_sayHello" id="d16ec7e5-784b-4458-910a-295e80256548"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AuthEndpointServiceSoapBinding</con:interface><con:operation>sayHello</con:operation><con:request name="Neg_sayHello" id="dd9ded7d-5556-4dbe-8c78-ec3cd6090371"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="username" value="admin2" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/auth</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loc="http://locations.com/services/locations">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <loc:sayHello>\r
+         <loc:name>Bebe</loc:name>\r
+      </loc:sayHello>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8c317951-e99f-4384-8f5c-debeb4d36dc0"/><con:assertion type="Not SOAP Fault Assertion" id="8da93d14-cfe9-4f60-94b3-1f996ae8d5ad" name="SOAP Fault"/><con:assertion type="Valid HTTP Status Codes" id="fcbb6f69-b467-4540-96dd-9c7bc22b32ba" name="Valid HTTP Status Codes"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:assertion type="Simple Contains" id="bfcd37d0-985b-4db0-85f4-ac93559fbe3d" name="Contains"><con:configuration><token>Illegal authentication</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Neg sayHello (wrong URL)" id="defbfea3-68ed-4202-b8d5-10ac7a278dc5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AuthEndpointServiceSoapBinding</con:interface><con:operation>sayHello</con:operation><con:request name="Neg sayHello (wrong URL)" id="5967666f-b1f4-465a-bb0d-76dd9e657a8f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="username" value="admin" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/a</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loc="http://locations.com/services/locations">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <loc:sayHello>\r
+         <loc:name>Bebe</loc:name>\r
+      </loc:sayHello>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="29cd18eb-ea5e-4897-9ddd-96263f346604" name="SOAP Response"/><con:assertion type="XPath Match" id="4f604522-6d89-4272-8c4f-e97772794d08" name="XPath Match"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
